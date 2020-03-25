@@ -1,3 +1,9 @@
+# Project specific ignores: folders and files
+bin/
+build/
+lib/
+
+# ---------- Auto-generated ---------- #
 # Prerequisites
 *.d
 
