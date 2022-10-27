@@ -1,12 +1,63 @@
+// roll -- simulate and add k rolls of an n-sided die, with overall bonus b
+// USAGE: roll <SIDES>
+//        roll <ROLLS> <SIDES> [BONUS]
+// -- Or, in nerd lingo:
+//      roll a dN --> 'roll N'
+//      roll KdN --> 'roll K N'
+//      roll KdN + B --> 'roll K N B'
+// Examples:
+// -- to roll  d6:         roll 6
+// -- to roll 2d6:         roll 2 6
+// -- to roll 2d6 + 8:     roll 2 6 8
+// ~ Mark J. Duvall ~ duvall3@github.com ~ 11/2021 ~ //
+
+//Copyright (C) 2021 Mark J. Duvall / T. Rocks Science
+//
+//    This program is free software: you can redistribute it and/or modify
+//    it under the terms of the GNU General Public License as published by
+//    the Free Software Foundation, either version 3 of the License, or
+//    (at your option) any later version.
+//
+//    This program is distributed in the hope that it will be useful,
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//    GNU General Public License for more details.
+//
+//    You should have received a copy of the GNU General Public License
+//    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 #include <iostream>
-#include "Hal.h"
+#include <string>
+#include "dRoll.h"
 
+using namespace std;
 
-int main() {
-  Hal *hal = new Hal();
-  hal->get_version();
-
-  hal->~Hal();
-
+// MAIN
+int main( int argc, char *argv[] )
+{
+  int k, n, b;
+  switch (argc) {
+    case 2:
+      n = stoi(argv[1]);
+      dRoll(n);
+      break;
+    case 3:
+      k = stoi(argv[1]);
+      n = stoi(argv[2]);
+      dRoll( k, n, 0 );
+      break;
+    case 4:
+      k = stoi(argv[1]);
+      n = stoi(argv[2]);
+      b = stoi(argv[3]);
+      dRoll( k, n, b );
+      break;
+    default:
+      printf( "Usage: roll <SIDES>\n       roll <ROLLS> <SIDES> [BONUS]\n" );
+      return 2;
+  }
   return 0;
 }
+
+// all pau!   )
+

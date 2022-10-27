@@ -3,7 +3,8 @@
 #-----------------------------------------------------------------------------#
 
 # Executable
-TARGET := program
+TARGET := roll
+TEST_TARGET := demo
 
 # Project structure
 PROJECT_DIRECTORY  := .
@@ -12,18 +13,20 @@ OBJECTS_DIRECTORY  := build
 DOCUMENT_DIRECTORY := doc
 INCLUDE_DIRECTORY  := include
 LIBRARY_DIRECTORY  := lib
-DATA_DIRECTORY     := resources
+DATA_DIRECTORY     := data
 SCRIPTS_DIRECTORY  := scripts
 SOURCES_DIRECTORY  := src
-SPIKE_DIRECTORY    := spike
-TESTS_DIRECTORY    := tests
+# SPIKE_DIRECTORY    := spike
+TEST_DIRECTORY    := test
 
 # C ++ source code which must be preprocessed.
 SOURCES  := $(wildcard $(SOURCES_DIRECTORY)/*.cpp)
+TEST_SOURCES  := $(wildcard $(TEST_DIRECTORY)/*.cpp)
 
 # By default, the object file name for a source file is made by replacing the
 # suffix .c, .cpp, .i, .s, etc., with .o.
 OBJECTS  := $(patsubst $(SOURCES_DIRECTORY)/%.cpp,$(OBJECTS_DIRECTORY)/%.o,$(SOURCES))
+TEST_OBJECTS  := $(patsubst $(TEST_DIRECTORY)/%.cpp,$(OBJECTS_DIRECTORY)/%.o,$(TEST_SOURCES))
 
 #-----------------------------------------------------------------------------#
 #  ENVIRONMENT                                                                #
@@ -63,7 +66,7 @@ INCLUDES := -I$(INCLUDE_DIRECTORY)
 
 # Command to remove a file; default ‘rm -f’.
 # r: recursive, v: verbose, f: force.
-RM = rm -rvf
+RM = /usr/bin/rm -rvf
 
 # Make directory if it does not exsist.
 MKDIR_P = mkdir -p
@@ -74,7 +77,7 @@ MKDIR_P = mkdir -p
 
 # A phony target is one that is not really the name of a file; rather it is
 # just a name for a recipe to be executed when you make an explicit request.
-.PHONY: all build clean debug release
+.PHONY: all build clean debug release test
 
 # Make all the top-level targets the makefile knows about.
 all: build $(APP_DIRECTORY)/$(TARGET)
@@ -97,6 +100,7 @@ $(APP_DIRECTORY)/$(TARGET): $(OBJECTS)
 # $<: The name of the first prerequisite.
 $(OBJECTS): $(OBJECTS_DIRECTORY)/%.o: $(SOURCES_DIRECTORY)/%.cpp
 	@echo "Compiling..."
+	@echo "rule: $(OBJECTS): $(OBJECTS_DIRECTORY)/%.o: $(SOURCES_DIRECTORY)/%.cpp"
 	$(CXX) -c $(CXXFLAGS) $(INCLUDES) $< -o $@
 
 # When a line starts with ‘@’, the echoing of that line is suppressed. The ‘@’
@@ -110,10 +114,10 @@ build:
 	@$(MKDIR_P) $(DATA_DIRECTORY)
 	@$(MKDIR_P) $(INCLUDE_DIRECTORY)
 	@$(MKDIR_P) $(LIBRARY_DIRECTORY)
-	@$(MKDIR_P) $(SCRIPTS_DIRECTORY)
+	@#$(MKDIR_P) $(SCRIPTS_DIRECTORY)
 	@$(MKDIR_P) $(SOURCES_DIRECTORY)
-	@$(MKDIR_P) $(SPIKE_DIRECTORY)
-	@$(MKDIR_P) $(TESTS_DIRECTORY)
+	@#$(MKDIR_P) $(SPIKE_DIRECTORY)
+	@$(MKDIR_P) $(TEST_DIRECTORY)
 
 # -g: Produce debugging information in the operating system's native format.
 debug: CXXFLAGS += -DDEBUG -g
@@ -133,9 +137,43 @@ debug: all
 release: CXXFLAGS += -O2
 release: all
 
+# Compile tests:
+# ---
+test: #CXXFLAGS += 
+# test: all $(APP_DIRECTORY)/$(TEST_TARGET)
+# $(APP_DIRECTORY)/$(TEST_TARGET): $(TEST_OBJECTS)
+# 	@echo "Linking..."
+# 	$(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -o $@ $^ $(LDLIBS)
+# 	# @echo "Copying test target(s) to project directory..."
+# 	# cp $(APP_DIRECTORY)/$(TEST_TARGET) $(PROJECT_DIRECTORY)/$(TEST_TARGET)
+# $(TEST_OBJECTS): $(TEST_OBJECTS_DIRECTORY)/%.o: $(TEST_SOURCES_DIRECTORY)/%.cpp
+# 	@echo "Compiling test target(s)..."
+# 	$(CXX) -c $(CXXFLAGS) $(INCLUDES) $< -o $@
+# ---
+# test: #CXXFLAGS += 
+test: all bin/demo
+bin/demo: demo.o
+	@echo "Linking demo..."
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -o bin/demo build/demo.o $(LDLIBS)
+demo.o:
+	@echo "Compiling demo..."
+	$(CXX) -c $(CXXFLAGS) $(INCLUDES) test/demo.cpp -o build/demo.o
+# ---
+# # test: #CXXFLAGS += 
+# test: all $(APP_DIRECTORY)/$(TEST_TARGET)
+# $(APP_DIRECTORY)/$(TEST_TARGET): $(TEST_OBJECTS)
+# 	@echo "Linking test(s)..."
+# 	$(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -o $@ $^ $(LDLIBS)
+# $(TEST_OBJECTS): $(OBJECTS_DIRECTORY)/%.o: $(TEST_SOURCES_DIRECTORY)/%.cpp
+# 	@echo "Compiling test(s)..."
+# 	@echo "rule: $(CXX) -c $(CXXFLAGS) $(INCLUDES) $< -o $@"
+# 	$(CXX) -c $(CXXFLAGS) $(INCLUDES) $< -o $@
+
 # Delete all files (and directories) that are normally created by running make.
 clean:
 	@echo "Cleaning..."
 	@$(RM) $(OBJECTS_DIRECTORY)
 	@$(RM) $(APP_DIRECTORY)/$(TARGET)
+	@$(RM) $(TEST_TARGET)
+	@$(RM) $(APP_DIRECTORY)/$(TEST_TARGET)
 	@$(RM) $(TARGET)
