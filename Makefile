@@ -77,7 +77,7 @@ MKDIR_P = mkdir -p
 
 # A phony target is one that is not really the name of a file; rather it is
 # just a name for a recipe to be executed when you make an explicit request.
-.PHONY: all build clean debug release test
+.PHONY: all build clean debug release test echo
 
 # Make all the top-level targets the makefile knows about.
 all: build $(APP_DIRECTORY)/$(TARGET)
@@ -100,7 +100,6 @@ $(APP_DIRECTORY)/$(TARGET): $(OBJECTS)
 # $<: The name of the first prerequisite.
 $(OBJECTS): $(OBJECTS_DIRECTORY)/%.o: $(SOURCES_DIRECTORY)/%.cpp
 	@echo "Compiling..."
-	@echo "rule: $(OBJECTS): $(OBJECTS_DIRECTORY)/%.o: $(SOURCES_DIRECTORY)/%.cpp"
 	$(CXX) -c $(CXXFLAGS) $(INCLUDES) $< -o $@
 
 # When a line starts with ‘@’, the echoing of that line is suppressed. The ‘@’
@@ -138,18 +137,6 @@ release: CXXFLAGS += -O2
 release: all
 
 # Compile tests:
-# ---
-test: #CXXFLAGS += 
-# test: all $(APP_DIRECTORY)/$(TEST_TARGET)
-# $(APP_DIRECTORY)/$(TEST_TARGET): $(TEST_OBJECTS)
-# 	@echo "Linking..."
-# 	$(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -o $@ $^ $(LDLIBS)
-# 	# @echo "Copying test target(s) to project directory..."
-# 	# cp $(APP_DIRECTORY)/$(TEST_TARGET) $(PROJECT_DIRECTORY)/$(TEST_TARGET)
-# $(TEST_OBJECTS): $(TEST_OBJECTS_DIRECTORY)/%.o: $(TEST_SOURCES_DIRECTORY)/%.cpp
-# 	@echo "Compiling test target(s)..."
-# 	$(CXX) -c $(CXXFLAGS) $(INCLUDES) $< -o $@
-# ---
 # test: #CXXFLAGS += 
 test: all bin/demo
 bin/demo: demo.o
@@ -158,7 +145,6 @@ bin/demo: demo.o
 demo.o:
 	@echo "Compiling demo..."
 	$(CXX) -c $(CXXFLAGS) $(INCLUDES) test/demo.cpp -o build/demo.o
-# ---
 # # test: #CXXFLAGS += 
 # test: all $(APP_DIRECTORY)/$(TEST_TARGET)
 # $(APP_DIRECTORY)/$(TEST_TARGET): $(TEST_OBJECTS)
@@ -166,8 +152,20 @@ demo.o:
 # 	$(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -o $@ $^ $(LDLIBS)
 # $(TEST_OBJECTS): $(OBJECTS_DIRECTORY)/%.o: $(TEST_SOURCES_DIRECTORY)/%.cpp
 # 	@echo "Compiling test(s)..."
-# 	@echo "rule: $(CXX) -c $(CXXFLAGS) $(INCLUDES) $< -o $@"
 # 	$(CXX) -c $(CXXFLAGS) $(INCLUDES) $< -o $@
+
+# Print certain macros, vars, etc. #debug
+echo:
+	@echo
+	@echo "     Sources -- $(SOURCES)"
+	@echo "Test Sources -- $(TEST_SOURCES)"
+	@echo
+	@echo "     Objects -- $(OBJECTS)"
+	@echo "Test Objects -- $(TEST_OBJECTS)"
+	@echo
+	@echo "Compiling Targets -- $(OBJECTS): $(OBJECTS_DIRECTORY)/%.o: $(SOURCES_DIRECTORY)/%.cpp"
+	@echo "Compiling    Rule -- $(CXX) -c $(CXXFLAGS) $(INCLUDES) $< -o $@"
+	@echo
 
 # Delete all files (and directories) that are normally created by running make.
 clean:
