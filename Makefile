@@ -17,16 +17,16 @@ DATA_DIRECTORY     := data
 SCRIPTS_DIRECTORY  := scripts
 SOURCES_DIRECTORY  := src
 # SPIKE_DIRECTORY    := spike
-TEST_DIRECTORY    := test
+TEST_SOURCES_DIRECTORY    := test
 
 # C ++ source code which must be preprocessed.
 SOURCES  := $(wildcard $(SOURCES_DIRECTORY)/*.cpp)
-TEST_SOURCES  := $(wildcard $(TEST_DIRECTORY)/*.cpp)
+TEST_SOURCES  := $(wildcard $(TEST_SOURCES_DIRECTORY)/*.cpp)
 
 # By default, the object file name for a source file is made by replacing the
 # suffix .c, .cpp, .i, .s, etc., with .o.
 OBJECTS  := $(patsubst $(SOURCES_DIRECTORY)/%.cpp,$(OBJECTS_DIRECTORY)/%.o,$(SOURCES))
-TEST_OBJECTS  := $(patsubst $(TEST_DIRECTORY)/%.cpp,$(OBJECTS_DIRECTORY)/%.o,$(TEST_SOURCES))
+TEST_OBJECTS  := $(patsubst $(TEST_SOURCES_DIRECTORY)/%.cpp,$(OBJECTS_DIRECTORY)/%.o,$(TEST_SOURCES))
 
 #-----------------------------------------------------------------------------#
 #  ENVIRONMENT                                                                #
@@ -116,7 +116,7 @@ build:
 	@#$(MKDIR_P) $(SCRIPTS_DIRECTORY)
 	@$(MKDIR_P) $(SOURCES_DIRECTORY)
 	@#$(MKDIR_P) $(SPIKE_DIRECTORY)
-	@$(MKDIR_P) $(TEST_DIRECTORY)
+	@$(MKDIR_P) $(TEST_SOURCES_DIRECTORY)
 
 # -g: Produce debugging information in the operating system's native format.
 debug: CXXFLAGS += -DDEBUG -g
@@ -138,33 +138,47 @@ release: all
 
 # Compile tests:
 # test: #CXXFLAGS += 
-test: all bin/demo
-bin/demo: demo.o
-	@echo "Linking demo..."
-	$(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -o bin/demo build/demo.o $(LDLIBS)
-demo.o:
-	@echo "Compiling demo..."
-	$(CXX) -c $(CXXFLAGS) $(INCLUDES) test/demo.cpp -o build/demo.o
-# # test: #CXXFLAGS += 
-# test: all $(APP_DIRECTORY)/$(TEST_TARGET)
-# $(APP_DIRECTORY)/$(TEST_TARGET): $(TEST_OBJECTS)
-# 	@echo "Linking test(s)..."
-# 	$(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -o $@ $^ $(LDLIBS)
-# $(TEST_OBJECTS): $(OBJECTS_DIRECTORY)/%.o: $(TEST_SOURCES_DIRECTORY)/%.cpp
-# 	@echo "Compiling test(s)..."
-# 	$(CXX) -c $(CXXFLAGS) $(INCLUDES) $< -o $@
+# test: all bin/demo
+# bin/demo: demo.o
+# 	@echo "Linking demo..."
+# 	$(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -o bin/demo build/demo.o $(LDLIBS)
+# demo.o:
+# 	@echo "Compiling demo..."
+# 	$(CXX) -c $(CXXFLAGS) $(INCLUDES) test/demo.cpp -o build/demo.o
+# test: #CXXFLAGS += 
+test: all $(APP_DIRECTORY)/$(TEST_TARGET)
+$(APP_DIRECTORY)/$(TEST_TARGET): $(TEST_OBJECTS)
+	@echo "Linking test(s)..."
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -o $@ $^ $(LDLIBS)
+$(TEST_OBJECTS): $(OBJECTS_DIRECTORY)/%.o: $(TEST_SOURCES_DIRECTORY)/%.cpp
+	@echo "Compiling test(s)..."
+	$(CXX) -c $(CXXFLAGS) $(INCLUDES) $< -o $@
 
 # Print certain macros, vars, etc. #debug
 echo:
 	@echo
-	@echo "     Sources -- $(SOURCES)"
-	@echo "Test Sources -- $(TEST_SOURCES)"
 	@echo
-	@echo "     Objects -- $(OBJECTS)"
-	@echo "Test Objects -- $(TEST_OBJECTS)"
+	@echo "               Sources -- $(SOURCES)"
+	@echo "Test           Sources -- $(TEST_SOURCES)"
 	@echo
-	@echo "Compiling Targets -- $(OBJECTS): $(OBJECTS_DIRECTORY)/%.o: $(SOURCES_DIRECTORY)/%.cpp"
-	@echo "Compiling    Rule -- $(CXX) -c $(CXXFLAGS) $(INCLUDES) $< -o $@"
+	@echo
+	@echo "               Objects -- $(OBJECTS)"
+	@echo "Test           Objects -- $(TEST_OBJECTS)"
+	@echo
+	@echo
+	@echo "Compiling      Targets -- $(OBJECTS): $(OBJECTS_DIRECTORY)/%.o: $(SOURCES_DIRECTORY)/%.cpp"
+	@echo "Compiling         Rule -- $(CXX) -c $(CXXFLAGS) $(INCLUDES) $< -o $@"
+	@echo
+	@echo "Compiling Test Targets -- $(TEST_OBJECTS): $(OBJECTS_DIRECTORY)/%.o: $(TEST_SOURCES_DIRECTORY)/%.cpp"
+	@echo "Compiling Test    Rule -- $(CXX) -c $(CXXFLAGS) $(INCLUDES) $< -o $@"
+	@echo
+	@echo
+	@echo "Linking        Targets -- $(APP_DIRECTORY)/$(TARGET): $(OBJECTS)"
+	@echo "Linking           Rule -- $(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -o $@ $^ $(LDLIBS)"
+	@echo
+	@echo "Linking Test   Targets -- $(APP_DIRECTORY)/$(TEST_TARGET): $(TEST_OBJECTS)"
+	@echo "Linking Test      Rule -- $(CXX) $(CXXFLAGS) $(INCLUDES) $(LDFLAGS) -o $@ $^ $(LDLIBS)"
+	@echo
 	@echo
 
 # Delete all files (and directories) that are normally created by running make.

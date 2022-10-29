@@ -26,38 +26,14 @@
 //    You should have received a copy of the GNU General Public License
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#include <iostream>
-#include <string>
-#include "dRoll.h"
+#include "mainRoll.h"
 
 using namespace std;
 
 // MAIN
-int main( int argc, char *argv[] )
+int main( int argc, char* argv[] )
 {
-  int k, n, b;
-  switch (argc) {
-    case 2:
-      n = stoi(argv[1]);
-      dRoll(n);
-      break;
-    case 3:
-      k = stoi(argv[1]);
-      n = stoi(argv[2]);
-      dRoll( k, n, 0 );
-      break;
-    case 4:
-      k = stoi(argv[1]);
-      n = stoi(argv[2]);
-      b = stoi(argv[3]);
-      dRoll( k, n, b );
-      break;
-    default:
-      printf( "Usage: roll <SIDES>\n       roll <ROLLS> <SIDES> [BONUS]\n" );
-      return 2;
-  }
-  return 0;
+  return mainRoll(argc, argv);
 }
 
 // all pau!   )
-
