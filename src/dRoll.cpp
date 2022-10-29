@@ -1,3 +1,12 @@
+//! core di(c)e-rolling function
+
+/*!
+ Rolls dice:
+   1) a specified number of times,
+   2) of a specified number of sides,
+   3) with an optional bonus
+*/
+
 // src for di(c)e-roll functions
 
 #include <cstdio>

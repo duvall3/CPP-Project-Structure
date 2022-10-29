@@ -1,3 +1,5 @@
+//! core di(c)e-rolling function
+
 // header for di(c)e-roll functions
 
 #ifndef DROLL_H

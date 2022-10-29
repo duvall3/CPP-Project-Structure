@@ -1,15 +1,18 @@
-// roll -- simulate and add k rolls of an n-sided die, with overall bonus b
-// USAGE: roll <SIDES>
-//        roll <ROLLS> <SIDES> [BONUS]
-// -- Or, in nerd lingo:
-//      roll a dN --> 'roll N'
-//      roll KdN --> 'roll K N'
-//      roll KdN + B --> 'roll K N B'
-// Examples:
-// -- to roll  d6:         roll 6
-// -- to roll 2d6:         roll 2 6
-// -- to roll 2d6 + 8:     roll 2 6 8
-// ~ Mark J. Duvall ~ duvall3@github.com ~ 11/2021 ~ //
+/*! \file */
+/// roll -- simulate and add k rolls of an n-sided die, with overall bonus b
+/**
+ *  USAGE: roll <SIDES>
+ *        roll <ROLLS> <SIDES> [BONUS]
+ * -- Or, in nerd lingo:
+ *      roll a dN --> 'roll N'
+ *      roll KdN --> 'roll K N'
+ *      roll KdN + B --> 'roll K N B'
+ * Examples:
+ * -- to roll  d6:         roll 6
+ * -- to roll 2d6:         roll 2 6
+ * -- to roll 2d6 + 8:     roll 2 6 8
+ * ~ Mark J. Duvall ~ duvall3@github.com ~ 11/2021 ~ //
+ */
 
 //Copyright (C) 2021 Mark J. Duvall / T. Rocks Science
 //
@@ -33,6 +36,9 @@ using namespace std;
 // MAIN
 int main( int argc, char* argv[] )
 {
+  /** MAIN function
+   * \param argument list
+   */
   return mainRoll(argc, argv);
 }
 

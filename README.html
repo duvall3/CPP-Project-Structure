@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Modified by Mark J. Duvall ~ github.com/duvall3 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>README</title>
+  <style type="text/css">
+      body {
+	color: #d9e1e9;
+	background-color: #0d1117;
+	font-size: small;
+	box-sizing: border-box;
+	min-width: 200px;
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 45px;
+      }
+      a {
+	color: #44DDAA;
+      }
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="c-project-structure">C++ Project Structure</h1>
+<hr />
+<p>TODO: - [ ] Write a simple test - [ ] Add test to Makefile</p>
+<hr />
+<p>The Makefile will make the following folder structure: * <strong>bin</strong>: for output executables (targets), both for the app and for any spikes and tests. * <strong>build</strong>: for object/binary files created during compilation (this is removed by <code>make clean</code>). * <strong>doc</strong>: for notes, configuration files and documentation. * <strong>include</strong>: for the applications header files. * <strong>lib</strong>: for any libraries that is compiled by the project. * <strong>resources</strong>: for data files used by the executable. * <strong>scripts</strong>: for scipts that can benefit the project (e.g. Python or bash scripts). * <strong>spike</strong>: for smaller classes or files to test technologies or ideas. * <strong>src</strong>: for the applications source files. * <strong>tests</strong>: for all test code files.</p>
+<h4 id="makefile-commands">Makefile commands</h4>
+<p>The following commands can be used with this Makefile: * <code>make</code> * <code>make all</code> * <code>make build</code> * <code>make clean</code> * <code>make debug</code> * <code>make release</code></p>
+</body>
+</html>
