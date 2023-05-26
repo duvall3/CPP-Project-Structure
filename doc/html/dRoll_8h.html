@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CPP-Project-Structure_roll: include/dRoll.h File Reference</title>
+<title>CPP-Project-Structure: include/dRoll.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,10 +21,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">CPP-Project-Structure_roll
-   &#160;<span id="projectnumber">0</span>
+   <div id="projectname">CPP-Project-Structure
+   &#160;<span id="projectnumber">1.0.0</span>
    </div>
-   <div id="projectbrief">Example g++ project</div>
+   <div id="projectbrief">Template for GNU-style C++ project</div>
   </td>
  </tr>
  </tbody>
@@ -88,8 +88,10 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa6fd6514f0f772b994c6ca512d0d8651"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dRoll_8h.html#aa6fd6514f0f772b994c6ca512d0d8651">dRoll</a> (int k, int n, int b=0)</td></tr>
+<tr class="memdesc:aa6fd6514f0f772b994c6ca512d0d8651"><td class="mdescLeft">&#160;</td><td class="mdescRight">primary dice-rolling function  <a href="dRoll_8h.html#aa6fd6514f0f772b994c6ca512d0d8651">More...</a><br /></td></tr>
 <tr class="separator:aa6fd6514f0f772b994c6ca512d0d8651"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1694e02652f68bd5b849ddf1531fd949"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dRoll_8h.html#a1694e02652f68bd5b849ddf1531fd949">dRoll</a> (int n)</td></tr>
+<tr class="memdesc:a1694e02652f68bd5b849ddf1531fd949"><td class="mdescLeft">&#160;</td><td class="mdescRight">overload for single roll  <a href="dRoll_8h.html#a1694e02652f68bd5b849ddf1531fd949">More...</a><br /></td></tr>
 <tr class="separator:a1694e02652f68bd5b849ddf1531fd949"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -124,6 +126,21 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Primary di(c)e-rolling function.</p>
+<p>Rolls dice: 1) a specified number of times, 2) of a specified number of sides, 3) with an optional bonus </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>&ndash; number of rolls to throw </td></tr>
+    <tr><td class="paramname">n</td><td>&ndash; number of sides on di(c)e </td></tr>
+    <tr><td class="paramname">b</td><td>&ndash; overall bonus to add to sum <em>[optional]</em> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">total</td><td>&ndash; final total (all rolls + bonus) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CPP-Project-Structure_roll: include/dRoll.h Source File</title>
+<title>CPP-Project-Structure: include/dRoll.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,10 +21,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">CPP-Project-Structure_roll
-   &#160;<span id="projectnumber">0</span>
+   <div id="projectname">CPP-Project-Structure
+   &#160;<span id="projectnumber">1.0.0</span>
    </div>
-   <div id="projectbrief">Example g++ project</div>
+   <div id="projectbrief">Template for GNU-style C++ project</div>
   </td>
  </tr>
  </tbody>
@@ -71,23 +71,20 @@ $(function() {
 <div class="title">dRoll.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="dRoll_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// header for di(c)e-roll functions</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef DROLL_H</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define DROLL_H</span></div>
+<a href="dRoll_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// header for di(c)e-roll functions</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DROLL_H</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DROLL_H</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">// primary</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keywordtype">int</span> <a class="code" href="dRoll_8h.html#aa6fd6514f0f772b994c6ca512d0d8651">dRoll</a>( <span class="keywordtype">int</span> k, <span class="keywordtype">int</span> n, <span class="keywordtype">int</span> b = 0 );</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// overload for single roll</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">int</span> <a class="code" href="dRoll_8h.html#aa6fd6514f0f772b994c6ca512d0d8651">dRoll</a>( <span class="keywordtype">int</span> n );</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keywordtype">int</span> <a class="code" href="dRoll_8h.html#aa6fd6514f0f772b994c6ca512d0d8651">dRoll</a>( <span class="keywordtype">int</span> k, <span class="keywordtype">int</span> n, <span class="keywordtype">int</span> b = 0 );</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">int</span> <a class="code" href="dRoll_8h.html#aa6fd6514f0f772b994c6ca512d0d8651">dRoll</a>( <span class="keywordtype">int</span> n );</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="adRoll_8h_html_aa6fd6514f0f772b994c6ca512d0d8651"><div class="ttname"><a href="dRoll_8h.html#aa6fd6514f0f772b994c6ca512d0d8651">dRoll</a></div><div class="ttdeci">int dRoll(int k, int n, int b=0)</div><div class="ttdef"><b>Definition:</b> dRoll.cpp:20</div></div>
+<div class="ttc" id="adRoll_8h_html_aa6fd6514f0f772b994c6ca512d0d8651"><div class="ttname"><a href="dRoll_8h.html#aa6fd6514f0f772b994c6ca512d0d8651">dRoll</a></div><div class="ttdeci">int dRoll(int k, int n, int b=0)</div><div class="ttdoc">primary dice-rolling function</div><div class="ttdef"><b>Definition:</b> dRoll.cpp:24</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -11,9 +11,9 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{dRoll_8h_aa6fd6514f0f772b994c6ca512d0d8651}{d\+Roll}} (int k, int n, int b=0)
-\item 
+\begin{DoxyCompactList}\small\item\em primary dice-\/rolling function \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{dRoll_8h_a1694e02652f68bd5b849ddf1531fd949}{d\+Roll}} (int n)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em overload for single roll \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -23,6 +23,22 @@ int \mbox{\hyperlink{dRoll_8h_a1694e02652f68bd5b849ddf1531fd949}{d\+Roll}} (int 
 \doxysubsubsection{\texorpdfstring{dRoll()}{dRoll()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily int d\+Roll (\begin{DoxyParamCaption}\item[{int}]{k,  }\item[{int}]{n,  }\item[{int}]{b = {\ttfamily 0} }\end{DoxyParamCaption})}
 
+Primary di(c)e-\/rolling function.
+
+Rolls dice\+: 1) a specified number of times, 2) of a specified number of sides, 3) with an optional bonus 
+\begin{DoxyParams}{Parameters}
+{\em k} & -- number of rolls to throw \\
+\hline
+{\em n} & -- number of sides on di(c)e \\
+\hline
+{\em b} & -- overall bonus to add to sum {\itshape \mbox{[}optional\mbox{]}} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em total} & -- final total (all rolls + bonus) \\
+\hline
+\end{DoxyRetVals}
 \mbox{\Hypertarget{dRoll_8h_a1694e02652f68bd5b849ddf1531fd949}\label{dRoll_8h_a1694e02652f68bd5b849ddf1531fd949}} 
 \index{dRoll.h@{dRoll.h}!dRoll@{dRoll}}
 \index{dRoll@{dRoll}!dRoll.h@{dRoll.h}}

@@ -1,5 +1,3 @@
-//! core di(c)e-rolling function
-
 // header for di(c)e-roll functions
 
 #ifndef DROLL_H
@@ -7,10 +5,10 @@
 
 using namespace std;
 
-// primary
+/// primary dice-rolling function
 int dRoll( int k, int n, int b = 0 );
 
-// overload for single roll
+/// overload for single roll
 int dRoll( int n );
 
 #endif
