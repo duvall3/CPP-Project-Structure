@@ -1,3 +1,25 @@
 \@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
 \contentsline {chapter}{\numberline {1}C++ Project Structure}{1}{chapter.1}%
 \contentsline {subsubsection}{\numberline {1.0.0.1}Makefile commands}{1}{subsubsection.1.0.0.1}%
+\contentsline {chapter}{\numberline {2}File Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}File List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}File Documentation}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}include/d\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Roll.h File Reference}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Function Documentation}{5}{subsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.1.1}dRoll()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{5}{subsubsection.3.1.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.1.2}dRoll()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{5}{subsubsection.3.1.1.2}%
+\contentsline {section}{\numberline {3.2}include/main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Roll.h File Reference}{6}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Function Documentation}{6}{subsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.1.1}mainRoll()}{6}{subsubsection.3.2.1.1}%
+\contentsline {section}{\numberline {3.3}R\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}E\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}A\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}D\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}M\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}E.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}md File Reference}{6}{section.3.3}%
+\contentsline {section}{\numberline {3.4}src/d\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Roll.cpp File Reference}{6}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Function Documentation}{7}{subsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.1.1}dRoll()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{7}{subsubsection.3.4.1.1}%
+\contentsline {subsubsection}{\numberline {3.4.1.2}dRoll()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{7}{subsubsection.3.4.1.2}%
+\contentsline {section}{\numberline {3.5}src/main.cpp File Reference}{7}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Function Documentation}{7}{subsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.1.1}main()}{7}{subsubsection.3.5.1.1}%
+\contentsline {section}{\numberline {3.6}src/main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Roll.cpp File Reference}{8}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Function Documentation}{8}{subsection.3.6.1}%
+\contentsline {subsubsection}{\numberline {3.6.1.1}mainRoll()}{8}{subsubsection.3.6.1.1}%
+\contentsline {chapter}{Index}{9}{section*.11}%

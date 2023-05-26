@@ -1,0 +1,40 @@
+\begin{theindex}
+
+  \item {dRoll}
+    \subitem {dRoll.cpp}, \hyperpage{7}
+    \subitem {dRoll.h}, \hyperpage{5}
+  \item {dRoll.cpp}
+    \subitem {dRoll}, \hyperpage{7}
+  \item {dRoll.h}
+    \subitem {dRoll}, \hyperpage{5}
+
+  \indexspace
+
+  \item {include/dRoll.h}, \hyperpage{5}
+  \item {include/mainRoll.h}, \hyperpage{6}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.cpp}, \hyperpage{7}
+  \item {main.cpp}
+    \subitem {main}, \hyperpage{7}
+  \item {mainRoll}
+    \subitem {mainRoll.cpp}, \hyperpage{8}
+    \subitem {mainRoll.h}, \hyperpage{6}
+  \item {mainRoll.cpp}
+    \subitem {mainRoll}, \hyperpage{8}
+  \item {mainRoll.h}
+    \subitem {mainRoll}, \hyperpage{6}
+
+  \indexspace
+
+  \item {README.md}, \hyperpage{6}
+
+  \indexspace
+
+  \item {src/dRoll.cpp}, \hyperpage{6}
+  \item {src/main.cpp}, \hyperpage{7}
+  \item {src/mainRoll.cpp}, \hyperpage{8}
+
+\end{theindex}
